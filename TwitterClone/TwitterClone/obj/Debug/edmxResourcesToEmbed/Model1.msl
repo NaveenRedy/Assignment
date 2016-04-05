@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TwitterDBModel1StoreContainer" CdmEntityContainer="TwitterDBEntities1">
+    <EntitySetMapping Name="UserImgDatas">
+      <EntityTypeMapping TypeName="TwitterDBModel1.UserImgData">
+        <MappingFragment StoreEntitySet="UserImgData">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

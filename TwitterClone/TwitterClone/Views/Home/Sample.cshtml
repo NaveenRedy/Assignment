@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TwitterClone.Models.UserInfo>
+
+@{
+    ViewBag.Title = "Sample";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sample</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tweet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserUploadedImg)
+        </th>
+        <th></th>
+    </tr>
+
+
+
+</table>

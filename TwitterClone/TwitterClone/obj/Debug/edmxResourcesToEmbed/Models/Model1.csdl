@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TwitterDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ContentViewModel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegisterUser">
+    <Key>
+      <PropertyRef Name="Emaild" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Emaild" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tweets" Relationship="Self.FK__Tweets__EmailId__33D4B598" FromRole="RegisterUser" ToRole="Tweets" />
+  </EntityType>
+  <EntityType Name="Tweet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tweet1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegisterUser" Relationship="Self.FK__Tweets__EmailId__33D4B598" FromRole="Tweets" ToRole="RegisterUser" />
+  </EntityType>
+  <EntityType Name="UserImgData">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageSize" Type="Int32" />
+    <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tweet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserUploadedImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VideoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Tweets__EmailId__33D4B598">
+    <End Role="RegisterUser" Type="Self.RegisterUser" Multiplicity="0..1" />
+    <End Role="Tweets" Type="Self.Tweet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegisterUser">
+        <PropertyRef Name="Emaild" />
+      </Principal>
+      <Dependent Role="Tweets">
+        <PropertyRef Name="EmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TwitterDBEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contents" EntityType="Self.Content" />
+    <EntitySet Name="ContentViewModels" EntityType="Self.ContentViewModel" />
+    <EntitySet Name="RegisterUsers" EntityType="Self.RegisterUser" />
+    <EntitySet Name="Tweets" EntityType="Self.Tweet" />
+    <EntitySet Name="UserImgDatas" EntityType="Self.UserImgData" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <AssociationSet Name="FK__Tweets__EmailId__33D4B598" Association="Self.FK__Tweets__EmailId__33D4B598">
+      <End Role="RegisterUser" EntitySet="RegisterUsers" />
+      <End Role="Tweets" EntitySet="Tweets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

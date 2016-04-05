@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TwitterDBModel1StoreContainer" CdmEntityContainer="TwitterDBEntities3">
+    <EntitySetMapping Name="Contents">
+      <EntityTypeMapping TypeName="TwitterDBModel1.Content">
+        <MappingFragment StoreEntitySet="Contents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentViewModels">
+      <EntityTypeMapping TypeName="TwitterDBModel1.ContentViewModel">
+        <MappingFragment StoreEntitySet="ContentViewModels">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegisterUsers">
+      <EntityTypeMapping TypeName="TwitterDBModel1.RegisterUser">
+        <MappingFragment StoreEntitySet="RegisterUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Emaild" ColumnName="Emaild" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tweets">
+      <EntityTypeMapping TypeName="TwitterDBModel1.Tweet">
+        <MappingFragment StoreEntitySet="Tweets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Tweet1" ColumnName="Tweet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserImgDatas">
+      <EntityTypeMapping TypeName="TwitterDBModel1.UserImgData">
+        <MappingFragment StoreEntitySet="UserImgData">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoes">
+      <EntityTypeMapping TypeName="TwitterDBModel1.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="Tweet" ColumnName="Tweet" />
+          <ScalarProperty Name="UserUploadedImg" ColumnName="UserUploadedImg" />
+          <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

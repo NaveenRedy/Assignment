@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+   
+  
+    <style type="text/css">
+        .fa-twitter {
+            color:cornflowerblue;
+             
+        }
+
+    </style>
+   
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <ul class="nav navbar-nav">
+
+
+                    <li style="font-size:15px">
+                        <a href="@Url.Action("ActionMethod", "Controller")"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    </ul>
+
+
+                
+</div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                   
+
+                    <li style="font-size:15px">
+                        <a href="@Url.Action("Index", "Home")"><i class="fa fa-bolt fa-1x"></i> Moments</a>
+                    </li>
+
+
+                    <li style="font-size:15px">
+                        <a href="@Url.Action("ActionMethod", "Controller")"><i class="fa fa-bell fa-1x"></i> Notifications</a>
+                    </li> 
+                   
+                    <li style="font-size:15px">
+                        <a href="@Url.Action("ActionMethod", "Controller")"> <i class="fa fa-envelope fa-1x"></i> Messages</a>
+                   
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Action("ActionMethod", "Controller")"> <i class="fa fa-twitter fa-2x"></i> </a>
+
+                    </li>
+                 
+
+                  
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Twitter Clone</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

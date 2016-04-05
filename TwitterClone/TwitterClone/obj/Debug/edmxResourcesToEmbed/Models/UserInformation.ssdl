@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TwitterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RegisterUser">
+    <Key>
+      <PropertyRef Name="Emaild" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="Emaild" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Tweets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="Tweet" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="UserImgData">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageSize" Type="int" />
+    <Property Name="FileName" Type="varchar" MaxLength="200" />
+    <Property Name="ImageData" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="UserImage" Type="varchar(max)" />
+    <Property Name="Tweet" Type="varchar(max)" />
+    <Property Name="UserUploadedImg" Type="varchar(max)" />
+    <Property Name="VideoUrl" Type="varchar(max)" />
+    <Property Name="ImageUrl" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK__Tweets__EmailId__33D4B598">
+    <End Role="RegisterUser" Type="Self.RegisterUser" Multiplicity="0..1" />
+    <End Role="Tweets" Type="Self.Tweets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegisterUser">
+        <PropertyRef Name="Emaild" />
+      </Principal>
+      <Dependent Role="Tweets">
+        <PropertyRef Name="EmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TwitterDBModelStoreContainer">
+    <EntitySet Name="RegisterUser" EntityType="Self.RegisterUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tweets" EntityType="Self.Tweets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserImgData" EntityType="Self.UserImgData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Tweets__EmailId__33D4B598" Association="Self.FK__Tweets__EmailId__33D4B598">
+      <End Role="RegisterUser" EntitySet="RegisterUser" />
+      <End Role="Tweets" EntitySet="Tweets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
